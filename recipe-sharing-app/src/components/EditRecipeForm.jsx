@@ -1,3 +1,5 @@
+import useRecipeStore from "./recipeStore";
+
 function EditRecipeForm() {
 
 
@@ -9,8 +11,8 @@ function EditRecipeForm() {
         }));
       };
     
-      const handleSubmit = (e) => {
-        e.preventDefault();
+      const handleSubmit = (event) => {
+        event.preventDefault();
         updateRecipe(recipe); 
       };
 
