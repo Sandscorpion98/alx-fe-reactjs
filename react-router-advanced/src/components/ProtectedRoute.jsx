@@ -1,44 +1,16 @@
-import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
-import Profile from '../components/Profile';
-import Login from '../components/Login';
+// components/ProtectedRoute.js
+import { Navigate, useLocation } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
+function ProtectedRoute({ element }) {
+  const { isAuthenticated } = useAuth();
+  const location = useLocation();
 
-const isAuthenticated = () => {
-    
-    return localStorage.getItem('authToken') !== null;
-};
+  if (!isAuthenticated) {
+    return <Navigate to="/login" state={{ from: location }} replace />;
+  }
 
+  return element;
+}
 
-const PrivateRoute = ({ component: Component, ...rest }) => (
-    <Route
-        {...rest}
-        render={props =>
-            isAuthenticated() ? (
-               
-                <Component {...props} />
-            ) : (
-                
-                <Redirect to="/login" />
-            )
-        }
-    />
-);
-
-const ProtectedRoutes = () => (
-    <Router>
-        <div>
-            <Switch>
-                
-                <Route path="/login" component={Login} />
-                
-                <PrivateRoute path="/profile" component={Profile} />
-                
-                <Route path="/">
-                    <h2>Home</h2>
-                </Route>
-            </Switch>
-        </div>
-    </Router>
-);
-
-export default ProtectedRoutes;
+export default ProtectedRoute;
