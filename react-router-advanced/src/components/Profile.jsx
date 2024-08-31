@@ -1,5 +1,6 @@
-
-import { Link } from 'react-router-dom';
+import ProfileSettings from './ProfileSettings'
+import ProfileDetails from './ProfileDetails'
+import { Link, Route, Routes  } from 'react-router-dom';
 
 function Profile() {
   return (
