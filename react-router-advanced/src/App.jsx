@@ -13,8 +13,8 @@ function App() {
         <Route path="profile" element={<Profile />}>
           <Route path="details" element={<ProfileDetails />} />
           <Route path="settings" element={<ProfileSettings />} />
-          <Route path="blog" element={<Blog />} />
-          <Route path="blog/:postId" element={<Post />} />
+          <Route path="/blog/:id" element={<Blog />} />
+          <Route path="BlogPost" element={<Post />} />
         </Route>
       </Routes>
     </Router>
