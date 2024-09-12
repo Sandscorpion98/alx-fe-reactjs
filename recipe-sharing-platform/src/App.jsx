@@ -1,3 +1,4 @@
+import HomePage from './components/HomePage'
 import './index.css'
 
 function App() {
@@ -5,9 +6,7 @@ function App() {
   return (
     <>
       
-    <h1 className="text-3xl font-bold underline text-blue-500">
-      Hello world!
-    </h1>
+    <HomePage />
 
     </>
   )
