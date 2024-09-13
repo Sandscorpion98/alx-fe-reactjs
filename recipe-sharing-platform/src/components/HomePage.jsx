@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom"; 
 
 function HomePage() {
     const [data, setData] = useState([]);
@@ -6,7 +7,7 @@ function HomePage() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch("/data.json"); // Fetch data.json from the public folder
+                const response = await fetch("/data.json");
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
@@ -24,8 +25,9 @@ function HomePage() {
             <h1 className="text-3xl font-bold mb-6 text-center">Recipes</h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                 {data.map((dataItem) => (
-                    <div 
+                    <Link 
                         key={dataItem.id} 
+                        to={`/recipe/${dataItem.id}`} 
                         className="bg-white shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 hover:shadow-2xl"
                     >
                         <img 
@@ -36,14 +38,9 @@ function HomePage() {
                         <div className="p-4">
                             <h2 className="text-xl font-semibold mb-2">{dataItem.title}</h2>
                             <p className="text-gray-600 mb-4">{dataItem.summary}</p>
-                            <a 
-                                href={dataItem.image} 
-                                className="text-indigo-500 hover:text-indigo-600 font-medium"
-                            >
-                                View Image
-                            </a>
+                            <p className="text-indigo-500 hover:text-indigo-600 font-medium">View Details</p>
                         </div>
-                    </div>
+                    </Link>
                 ))}
             </div>
         </div>
