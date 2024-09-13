@@ -61,9 +61,7 @@ function AddRecipeForm() {
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                         placeholder="Enter recipe title"
-                        className={`w-full px-4 py-2 border rounded-lg shadow-sm focus:ring focus:ring-blue-200 focus:outline-none ${
-                            errors.title ? "border-red-500" : "border-gray-300"
-                        }`}
+                        className={`w-full md:w-3/4 px-4 py-2 border rounded-lg shadow-sm focus:ring focus:ring-blue-200 focus:outline-none ${errors.title ? "border-red-500" : "border-gray-300"}`}
                         required
                     />
                     {errors.title && <p className="text-red-500 text-xs mt-2">{errors.title}</p>}
