@@ -1,15 +1,18 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './components/Home';
-import About from './components/About';
+import Search from './components/Search';
 
 const App = () => {
+  const handleSearch = (username) => {
+    console.log('Searching for:', username);
+   
+  };
+
   return (
     <Router>
       <div className="app-layout">
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/" element={<Search onSearch={handleSearch} />} />
         </Routes>
       </div>
     </Router>
