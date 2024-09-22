@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const apiUrl = 'https://api.github.com/search/users';
+const apiUrl = 'https://api.github.com/search/users?q={query}';
 const apiKey = import.meta.env.VITE_GITHUB_API_KEY; 
 
 export const fetchUserData = async (username, location, minRepos, page = 1) => {
