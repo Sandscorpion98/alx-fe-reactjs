@@ -32,7 +32,7 @@ const Search = () => {
     setLoading(true);
     try {
       const { items } = await fetchUserData(username, location, minRepos, page + 1);
-      setUsers(prevUsers => [...prevUsers, ...items]); // Append new results
+      setUsers(prevUsers => [...prevUsers, ...items]); 
       setLoading(false);
     } catch (err) {
       setError('Error loading more users');
